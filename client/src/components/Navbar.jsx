@@ -3,9 +3,24 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 import logo from '../../images/logo.png';
 
+const NavbarItem = ({ title, classProps }) => {
+    return (
+        <li className={`mx-4 cursor-pointer ${classProps}`}>
+            {title}
+        </li>
+    )
+}
+
 const Navbar = () => {
     return (
-        <h1>Navbar</h1>
+        <nav className="w-full flex md:justify-center justify-between items-center p-4">
+            <div className="md:flex-[0.5] flex-initialjustify-center items-center">
+                <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            </div>
+            <ul className="text-white md:flex hidden list-none glex-row justify-between items-center flex-initial">
+                
+            </ul>
+        </nav>
     );
 }
 
