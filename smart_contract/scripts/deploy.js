@@ -1,5 +1,3 @@
-import * as dotenv from 'dotenv' 
-
 const main = async () => {
   const Transactions = await hre.ethers.getContractFactory("Transactions");
   const transactions = await Transactions.deploy();
@@ -18,3 +16,5 @@ const runMain = async () => {
     process.exit(1);
   }
 }
+
+runMain();
