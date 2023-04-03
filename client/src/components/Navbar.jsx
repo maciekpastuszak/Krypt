@@ -30,8 +30,8 @@ const [toggleMenu, setToggleMenu] = useState(false);
             </ul>
             <div className='flex relative'>
                     {toggleMenu
-                    ? <AiOutlineClose fontSite={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)}  />
-                    : <HiMenuAlt4 fontSite={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)}  />
+                    ? <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)}  />
+                    : <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)}  />
                     }
                     {toggleMenu && (
                         <ul
