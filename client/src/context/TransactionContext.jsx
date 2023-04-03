@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from React;
+import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
-import { contractABI, contractAddress } from '../utils/contants'
+import { contractABI, contractAddress } from '../utils/constants'
 
 export const TransactionContext = React.createContext();
 
@@ -13,11 +13,11 @@ const getEthereumContract = () => {
     const provider = new EtherscanProvider.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
-}
 
-console.log({
-    provider, signer, transactionContract
-})
+    console.log({
+        provider, signer, transactionContract
+    })
+}
 
 export const TransactionProvider = ({ children }) => {
     return (
