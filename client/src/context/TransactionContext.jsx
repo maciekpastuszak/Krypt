@@ -21,11 +21,27 @@ const getEthereumContract = () => {
 
 export const TransactionProvider = ({ children }) => {
     const [connectedAccount, setconnectedAccount] = useState(initialState)
+    
+    
     const checkIfWalletIsConnected = async () => {
-        if(!ethereum) return alert("Please install metamask");
+        try {
+            if(!ethereum) return alert("Please install metamask");
 
-        const accounts = await ethereum.request({ method: 'eth_accounts'});
+            const accounts = await ethereum.request({ method: 'eth_accounts'});
+    
+            if(accounts.length){
+                setCurrentAccount(accounts[0]);
+    
+                //getAllTransactions();
+            } else {
+                console.log("No account found")
+            }
+        } catch (error) {
+            console.log(error);
+            throw new Error("No ethereum object")
+        }
 
+       
         console.log(accounts);
     }
 
