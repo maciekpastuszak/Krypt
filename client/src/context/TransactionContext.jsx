@@ -20,7 +20,7 @@ const getEthereumContract = () => {
 }
 
 export const TransactionProvider = ({ children }) => {
-    const [currentAccount, setCurrentAccount] = useState(initialState)
+    const [currentAccount, setCurrentAccount] = useState("")
     const [formData, setFormData] = useState({addressTo: "", amount: "", keyword: "", message: ""});
     
     const handleChange = (e, name) => {
@@ -45,8 +45,6 @@ export const TransactionProvider = ({ children }) => {
             throw new Error("No ethereum object")
         }
 
-       
-        console.log(accounts);
     }
 
     const connectWallet = async () => {
