@@ -24,7 +24,7 @@ export const TransactionProvider = ({ children }) => {
     const [formData, setFormData] = useState({addressTo: "", amount: "", keyword: "", message: ""});
     
     const handleChange = (e, name) => {
-        setFormData((prevStae) => ({...prevState, [name]: e.target.value}))
+        setFormData((prevState) => ({...prevState, [name]: e.target.value}))
     }
 
     const checkIfWalletIsConnected = async () => {
