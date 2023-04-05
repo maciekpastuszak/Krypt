@@ -21,8 +21,12 @@ const getEthereumContract = () => {
 
 export const TransactionProvider = ({ children }) => {
     const [currentAccount, setCurrentAccount] = useState(initialState)
+    const [formData, setFormData] = useState({addressTo: "", amount: "", keyword: "", message: ""});
     
-    
+    const handleChange = (e, name) => {
+        setFormData((prevStae) => ({...prevState, [name]: e.target.value}))
+    }
+
     const checkIfWalletIsConnected = async () => {
         try {
             if(!ethereum) return alert("Please install metamask");
