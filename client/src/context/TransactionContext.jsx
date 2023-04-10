@@ -20,6 +20,7 @@ const getEthereumContract = () => {
 export const TransactionProvider = ({ children }) => {
     const [currentAccount, setCurrentAccount] = useState("")
     const [formData, setFormData] = useState({addressTo: "", amount: "", keyword: "", message: ""});
+    const [isLoading, setIsLoading] = useState(false)
     
     const handleChange = (e, name) => {
         setFormData((prevState) => ({...prevState, [name]: e.target.value}))
@@ -73,7 +74,12 @@ export const TransactionProvider = ({ children }) => {
                     gas: '0x5208',// 21000 GWEI
                     value: parsedAmount._hex,
                 }]
-            })
+            });
+
+        const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
+
+        setIsLoading(true)
+        
         } catch (error) {
             console.log(error);
             throw new Error("No ethereum object")
