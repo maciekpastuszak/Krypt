@@ -27,7 +27,7 @@ const Services = () => {
                 <ServiceCard 
                     color="bg=[#2952E3]"
                     title="Security Guaranteed"
-                    icons={<BsShieldFillCheck fontSize={21} className={"text-white"}/>}
+                    icon={<BsShieldFillCheck fontSize={21} className={"text-white"}/>}
                     subtitle="Security is guaranteed. We always maintain privacy and maintain the quality of our products"
                 />
             </div>
