@@ -2,7 +2,11 @@ import { BsShieldFillCheck } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import { RiHeart2Fill } from "react-icons/ri";
 
+const ServiceCard = () => (
+    <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl">
 
+    </div>
+  );
 const Services = () => {
     return (
         <div className="flex w-full justify-center items-center gradient-bg-services">
@@ -12,7 +16,12 @@ const Services = () => {
                 </div>
             </div>
             <div className="flex flex-1 flex-col justify-start items-center">
-
+                <ServiceCard 
+                    color="bg=[#2952E3]"
+                    title="Security Guaranteed"
+                    icons={<BsShieldFillCheck fontSize={21} className={"text-white"}/>}
+                    subtitle="Security is guaranteed. We always maintain privacy and maintain the quality of our products"
+                />
             </div>
         </div>
     );
