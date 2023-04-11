@@ -12,19 +12,19 @@ window.ethereum
 const getEthereumContract = () => {
     const provider = new EtherscanProvider.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
+    const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-    return transactionContract;
+    return transactionsContract;
 }
 
 export const TransactionProvider = ({ children }) => {
     const [currentAccount, setCurrentAccount] = useState("")
-    const [formData, setFormData] = useState({addressTo: "", amount: "", keyword: "", message: ""});
+    const [formData, setFormdata] = useState({addressTo: "", amount: "", keyword: "", message: ""});
     const [isLoading, setIsLoading] = useState(false)
-    const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'))
+    const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'));
     
     const handleChange = (e, name) => {
-        setFormData((prevState) => ({...prevState, [name]: e.target.value}))
+        setFormdata((prevState) => ({...prevState, [name]: e.target.value}))
     }
 
     const checkIfWalletIsConnected = async () => {
@@ -92,15 +92,15 @@ export const TransactionProvider = ({ children }) => {
             console.log(error);
             throw new Error("No ethereum object")
         }
-    }
+    };
 
     useEffect(() => {
         checkIfWalletIsConnected();
     }, []);
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currentAccount, formData, setFormData, handleChange }}>
+        <TransactionContext.Provider value={{ connectWallet, currentAccount, formData, setFormdata, handleChange }}>
             {children}
         </TransactionContext.Provider>
-    )
+    );
 }
