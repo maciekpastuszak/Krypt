@@ -29,22 +29,21 @@ import useFetch from "../hooks/useFetch";
                             <p className="text-white text-base">Message: {message}</p>
                             </>
                         )}
+                    </div>
+                    <img 
+                    src={gifUrl | url}
+                    alt="gif"
+                    className="w-full h-64 2x:h-96 rounded-md shadow-lg object-cover"
+                    />
 
-                        <img 
-                        src={gifUrl | url}
-                        alt="gif"
-                        className="w-full h-64 2x:h-96 rounded-md shadow-lg object-cover"
-                        />
-
-                        <div className="bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl">
-                            <p className="text-[#37c7da] font-bold">{timestamp}</p>
-                        </div>
+                    <div className="bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl">
+                        <p className="text-[#37c7da] font-bold">{timestamp}</p>
                     </div>
                 </div>
             </div>
         );
     };
-
+const Transactions = () => {
     const { currentAccount } = useContext(TransactionContext);
     return (
         <div className="flex w-full justofy-center 2xl:px-20 gradient-bg-transactions">
@@ -63,5 +62,6 @@ import useFetch from "../hooks/useFetch";
             </div>
         </div>
     );
+}
 
 export default Transactions;
