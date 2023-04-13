@@ -31,7 +31,7 @@ import useFetch from "../hooks/useFetch";
                         )}
                     </div>
                     <img 
-                    src={gifUrl | url}
+                    src={gifUrl || url}
                     alt="gif"
                     className="w-full h-64 2x:h-96 rounded-md shadow-lg object-cover"
                     />
