@@ -18,6 +18,11 @@ const Footer = () => {
                 <p className="text-white text-sm text-center">Come join us</p>
                 <p className="text-white text-sm text-center">info@krypto.com</p>
             </div>
+            <div classsName="sm:w-[90%] w-full h-[0.25px] bg-grey-400 mt-5"></div>
+            <div className="sm:w-[90%] w-full flex justify-between items-cener mt-3">
+                <p className="text-slate-50 text-sm text-center">@krypto 2023</p>
+                <p className="text-slate-50 text-sm text-center">All rights reserved</p>
+            </div>
         </div>
     );
 }
