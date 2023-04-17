@@ -22,6 +22,7 @@ export const TransactionProvider = ({ children }) => {
     const [formData, setFormdata] = useState({addressTo: "", amount: "", keyword: "", message: ""});
     const [isLoading, setIsLoading] = useState(false)
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'));
+    const [transactions, setTransactions] = useState([])
     
     const handleChange = (e, name) => {
         setFormdata((prevState) => ({...prevState, [name]: e.target.value}))
@@ -42,7 +43,7 @@ export const TransactionProvider = ({ children }) => {
                 amount: parseInt(transaction.amount._hex) * (10 ** 18)
             }))
 
-            console.log(availableTransactions)
+            setTransactions(structuredTransactions);
         } catch (error) {
             console.log(error)
         }
