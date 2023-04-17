@@ -108,6 +108,7 @@ export const TransactionProvider = ({ children }) => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
+        checkIfTransctionsExist();
     }, []);
 
     return (
