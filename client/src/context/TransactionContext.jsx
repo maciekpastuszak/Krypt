@@ -7,10 +7,8 @@ export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
 
-window.ethereum
-
-const EthereumContract = () => {
-    const provider = new EtherscanProvider.providers.Web3Provider(ethereum);
+const createEthereumContract = () => {
+    const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
 
@@ -72,9 +70,9 @@ export const TransactionProvider = ({ children }) => {
     const checkIfTransctionsExist = async () => {
         try {
             const transactionContract = getEthereumContract();
-            const transactionCount = await transactionContract.getTransactionCount();
+            const currentTransactionCount = await transactionContract.getTransactionCount();
 
-            window.localStorage.setItem("transactionCount", transactionCount);
+            window.localStorage.setItem("transactionCount", currentTransactionCount);
         } catch (error) {
             console.log(error);
             throw new Error("No ethereum object")
@@ -119,9 +117,9 @@ export const TransactionProvider = ({ children }) => {
         setIsLoading(false)
         console.log(`Success - ${transactionHash.hash}`);
 
-        const transactionCount = await transactionContract.getTransactionCount();
+        const transactionsCount = await transactionContract.getTransactionCount();
         
-        setTransactionCount(transactionCount.toNumber())
+        setTransactionCount(transactionsCount.toNumber())
         window.reload()
         } catch (error) {
             console.log(error);
@@ -132,11 +130,22 @@ export const TransactionProvider = ({ children }) => {
     useEffect(() => {
         checkIfWalletIsConnected();
         checkIfTransctionsExist();
-    }, []);
+    }, [transactionCount]);
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currentAccount, formData, setFormdata, handleChange,sendTransaction, transactions, isLoading }}>
+        <TransactionContext.Provider 
+        value={{ 
+            connectWallet, 
+            currentAccount,
+            formData, 
+            setFormdata, 
+            handleChange,
+            sendTransaction, 
+            transactions, 
+            isLoading 
+            }}
+            >
             {children}
         </TransactionContext.Provider>
     );
-}
+};
