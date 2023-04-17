@@ -9,7 +9,7 @@ const { ethereum } = window;
 
 window.ethereum
 
-const getEthereumContract = () => {
+const EthereumContract = () => {
     const provider = new EtherscanProvider.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
@@ -122,6 +122,7 @@ export const TransactionProvider = ({ children }) => {
         const transactionCount = await transactionContract.getTransactionCount();
         
         setTransactionCount(transactionCount.toNumber())
+        window.reload()
         } catch (error) {
             console.log(error);
             throw new Error("No ethereum object")
