@@ -14,13 +14,14 @@ import useFetch from "../hooks/useFetch";
                 2xl:max-w-[500px]
                 sm:min-w-[270px]
                 sm:max-w-[300px]
+                min-w-full
                 flex-col p-3 rounded-md hover:shadow-2xl
             ">
                 <div className="flex flex-col items-center w-full mt-3">
-                    <div className="w-full mb-6 p-2">
-                        <a href={`https://sepolia.etherscan.io/address/${addressFrom}`} target="_blank" rel="noopener noreferrer">
+                    <div className="display-flex justify-start w-full mb-6 p-2">
+                        <a href={`https://sepolia.etherscan.io/address/${addressFrom}`} target="_blank" rel="noreferrer">
                         <p className="text-white text-base">From: {shortenAddress(addressFrom)}</p></a>
-                        <a href={`https://sepolia.etherscan.io/address/${addressTo}`} target="_blank" rel="noopener noreferrer">
+                        <a href={`https://sepolia.etherscan.io/address/${addressTo}`} target="_blank" rel="noreferrer">
                         <p className="text-white text-base">To: {shortenAddress(addressTo)}</p></a>
                         <p className="text-white text-base">Amount: {amount} ETH</p>
                         {message && (
@@ -46,7 +47,7 @@ import useFetch from "../hooks/useFetch";
 const Transactions = () => {
     const { currentAccount, transactions } = useContext(TransactionContext);
     return (
-        <div className="flex w-full justofy-center 2xl:px-20 gradient-bg-transactions">
+        <div className="flex w-full justify-center 2xl:px-20 gradient-bg-transactions">
             <div className="flex flex-col md:p-12 py-12 px-4">
                 {currentAccount ? (
                     <h3 className="text-white text-3xl text-cener my-2">Latest transactions</h3>
