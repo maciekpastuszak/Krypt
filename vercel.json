@@ -2,6 +2,6 @@
   "builds": [{ "src": "client/package.json", "use": "@vercel/static-build" }],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/.*", "dest": "client/dist/index.html" }
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
